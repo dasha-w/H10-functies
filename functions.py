@@ -2,6 +2,8 @@
 # Voorbeeld Opdracht
 # Schrijf een functie die de tekst “Hello, World!” print. Roep vervolgens de functie aan.
 # ==========================================
+import random
+
 
 def print_hello_world():
     print('Hello, World!')
@@ -22,6 +24,11 @@ print_hello_world()  # Uitkomst: Hello, World!
 
 factor = 5
 
+def print_tafel_regel(i, factor):
+    print(i, 'x', factor, '=', i*factor)
+
+for i in range(1,11):
+    print_tafel_regel(i, factor)
 
 # ==========================================
 # Opdracht 2:
@@ -40,6 +47,27 @@ factor = 5
 # 3 7 2 6 1 4 5 6 2 1
 # Er is 2 keer een 6 gegooid
 # ==========================================
+
+#2a
+def maak_willekeurig_getal(min, max):
+    return random.randint(min, max)
+
+#2b
+aantal_keer_zes = 0
+
+def hoevaak_zes(willekeurig_getal):
+    if willekeurig_getal == 6:
+        return True
+    else: return False
+
+for i in range(1,11):
+    willekeurig_getal = maak_willekeurig_getal(1,6)
+    print(willekeurig_getal, end=' ')
+    if hoevaak_zes(willekeurig_getal):
+        aantal_keer_zes += 1
+
+print(f'\nEr is {aantal_keer_zes} keer een 6 gegooid.')
+
 
 
 
@@ -62,3 +90,14 @@ factor = 5
 temp_in_fahr_stockholm = 65
 temp_in_fahr_sydney = 75
 temp_in_fahr_cairo = 104
+
+def fahrenheit_to_celsius(temp_fahrenheit):
+    return (temp_fahrenheit -32) * (5/9)
+
+
+def afronden_gehele_getallen(num_float):
+    return round(num_float)
+
+print(afronden_gehele_getallen(fahrenheit_to_celsius(temp_in_fahr_sydney)))
+print(afronden_gehele_getallen(fahrenheit_to_celsius(temp_in_fahr_cairo)))
+print(afronden_gehele_getallen(fahrenheit_to_celsius(temp_in_fahr_stockholm)))
